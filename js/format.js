@@ -231,7 +231,7 @@ const FORMATS = {
         }
     },
     layer: {
-      layers: ["无限", "永恒", "现实", "平等", "亲和", "迅捷", "同一", 活力", "免疫", "暴行"],
+      layers: [["infinity","eternity","reality","equality","affinity","celerity","identity","vitality","immunity","atrocity"],
       format(ex, acc, max) {
         ex = E(ex)
         let layer = ex.max(1).log10().max(1).log(INFINITY_NUM.log10()).floor()
