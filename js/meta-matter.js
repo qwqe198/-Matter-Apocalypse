@@ -1,7 +1,7 @@
 const META_MATTER = {
     prefix: [
-        ['', '非自然', '奇异', '暗', '红色', '粉色', '紫色', '紫罗兰', '蓝色', '青色', '绿色', '柠檬色', '黄色', '橙色', '白色', '褪色'],
-        ["无限", "永恒", "现实", "平等", "亲和", "迅捷", "同一", 活力", "免疫", "暴行"],
+        ['', 'unnatural', 'exotic', 'dark', 'red', 'pink', 'purple', 'violet', 'blue', 'cyan', 'green', 'lime', 'yellow', 'orange', 'white', 'fading'],
+        ["infinity", "eternity", "reality", "equality", "affinity", "celerity", "identity", "vitality", "immunity", "atrocity"],
     ],
     
     get base() { return 1e3 }, // 基础值为 1000
