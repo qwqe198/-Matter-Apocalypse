@@ -1,0 +1,37 @@
+body {
+    background-color: #181818;
+    text-shadow: 1px 1px 1px #fff4;
+    color: white;
+}
+
+.line {
+	border-color: white;
+}
+
+button {
+    background: #181818;
+    color: white;
+}
+
+button:not(.bought,#achievements > button):hover, .tab-button.selected {
+    background: #333;
+}
+
+button.bought {
+    background: #030;
+    border-color: #080;
+}
+
+.upgrade-ID {
+    color: #fff8;
+}
+
+#tooltip-div {
+    background-color: #222;
+
+    color: white;
+}
+
+.notify-ctn {
+    background-color: #222;
+}
