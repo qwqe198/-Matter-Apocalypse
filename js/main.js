@@ -298,7 +298,7 @@ const DARK_PENALTY = [
         get desc() {
             return [
                 `物质生成在超过 <b>${format(tmp.matter_overflow_start)}</b> 时进一步减慢。`,
-                `移除 <b>M6</b> 的缩放。`
+                `移除 <b>M6</b> 的折算。`
             ];
         },
     }, {

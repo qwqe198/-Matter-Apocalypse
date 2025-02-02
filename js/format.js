@@ -231,15 +231,51 @@ const FORMATS = {
         }
     },
     layer: {
+      // 定义层级名称
       layers: ["infinity","eternity","reality","equality","affinity","celerity","identity","vitality","immunity","atrocity"],
+      
+      // 格式化函数
       format(ex, acc, max) {
-        ex = E(ex)
-        let layer = ex.max(1).log10().max(1).log(INFINITY_NUM.log10()).floor()
-        if (layer.lte(0)) return format(ex,acc,max,"sc")
-        ex = E(10).pow(ex.max(1).log10().div(INFINITY_NUM.log10().pow(layer)).sub(layer.gte(1)?1:0))
-        let meta = layer.div(10).floor()
-        let layer_id = layer.toNumber()%10-1
-        return format(ex,Math.max(4,acc),max,"sc") + " " + (meta.gte(1)?"meta"+(meta.gte(2)?formatPow(meta,0,max,"sc"):"")+"-":"") + (isNaN(layer_id)?"nanity":this.layers[layer_id])
+        // 将输入值转换为指数形式
+        ex = E(ex);
+        
+        // 计算当前层级
+        let layer = ex
+          .max(1) // 确保值不小于1
+          .log10() // 取以10为底的对数
+          .max(1) // 再次确保不小于1
+          .log(INFINITY_NUM.log10()) // 取以INFINITY_NUM的对数为底的对数
+          .floor(); // 向下取整
+        
+        // 如果层级小于等于0，返回科学计数法格式
+        if (layer.lte(0)) return format(ex, acc, max, "sc");
+        
+        // 计算当前层级内的值
+        ex = E(10).pow(
+          ex
+            .max(1) // 确保值不小于1
+            .log10() // 取以10为底的对数
+            .div(INFINITY_NUM.log10().pow(layer)) // 除以INFINITY_NUM的对数的层级次方
+            .sub(layer.gte(1) ? 1 : 0) // 如果层级大于等于1，减去1
+        );
+        
+        // 计算元层级（每10个层级为一个元层级）
+        let meta = layer.div(10).floor();
+        
+        // 计算当前层级在元层级中的索引
+        let layer_id = layer.toNumber() % 10 - 1;
+        
+        // 返回格式化后的字符串
+        return (
+          format(ex, Math.max(4, acc), max, "sc") + // 格式化当前值
+          " " + // 添加空格
+          (meta.gte(1) // 如果元层级大于等于1
+            ? "meta" + // 添加"meta"前缀
+              (meta.gte(2) ? formatPow(meta, 0, max, "sc") : "") + // 如果元层级大于等于2，添加元层级的幂次
+              "-" // 添加连字符
+            : "") +
+          (isNaN(layer_id) ? "nanity" : this.layers[layer_id]) // 如果层级索引无效，返回"nanity"，否则返回对应的层级名称
+        );
       },
     },
     standard: {

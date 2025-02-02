@@ -264,7 +264,7 @@ const UPGRADES = {
         max: 1,
         unl: ()=>hasUpgrade('UM2'),
 
-        desc: `自动购买 <b>M*</b> 升级，无需消耗货币。`,
+        desc: `自动购买 <b>M*</b> 升级，无需消耗资源。`,
         curr: "unnatural",
 
         cost: 1e3,
@@ -331,7 +331,7 @@ const UPGRADES = {
     "UM8": {
         unl: ()=>hasUpgrade('UM7'),
 
-        desc: `每级延迟 <b>M2</b> 的首次缩放 <b>+10</b>（通常为 10）。`,
+        desc: `每级延迟 <b>M2</b> 的首次折算 <b>+10</b>（通常为 10）。`,
         curr: "unnatural",
 
         cost: a => a.sumBase(1.1).pow_base(10).mul(1e40),
@@ -347,7 +347,7 @@ const UPGRADES = {
         max: 1,
         unl: ()=>hasUpgrade('UM8') && player.dark.unl,
 
-        desc: `<b>UM8</b> 现在以 50% 的速率影响 <b>M3</b> 的缩放。`,
+        desc: `<b>UM8</b> 现在以 50% 的速率影响 <b>M3</b> 的折算。`,
         curr: "unnatural",
 
         cost: 1e130,
@@ -438,7 +438,7 @@ const UPGRADES = {
         max: 1,
         unl: ()=>hasUpgrade("EM4"),
 
-        desc: `自动购买 <b>UM*</b> 升级，无需消耗货币。`,
+        desc: `自动购买 <b>UM*</b> 升级，无需消耗资源。`,
         curr: "exotic",
 
         cost: 1e7,
@@ -564,7 +564,7 @@ const UPGRADES = {
         max: 1,
         unl: ()=>hasUpgrade("DM5"),
 
-        desc: `自动购买 <b>EM*</b> 升级，无需消耗货币。`,
+        desc: `自动购买 <b>EM*</b> 升级，无需消耗资源。`,
         curr: "dark",
 
         cost: 1e4,
@@ -760,7 +760,7 @@ const UPGRADES = {
         max: 1,
         unl: ()=>hasUpgrade('O1'),
 
-        desc: `自动购买 <b>MM*</b> 升级，无需消耗货币。`,
+        desc: `自动购买 <b>MM*</b> 升级，无需消耗资源。`,
         curr: "meta",
 
         cost: E('ee100'),
